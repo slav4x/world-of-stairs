@@ -1,0 +1,49 @@
+.noble
+  padding-top: var(--gap)
+  position: relative
+  &-bg
+    position: absolute
+    top: -45px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: -1
+  .container
+    @include flexbox
+  &-content
+    max-width: 500px
+    @include flexbox
+    flex-direction: column
+    align-items: flex-start
+    .title
+      margin-bottom: 24px
+    .subtitle
+      max-width: 350px
+  &-text
+    margin-top: 36px
+    max-width: 450px
+    b
+      color: var(--color-red)
+  &-slider
+    width: 340px
+    height: 100%
+    &__content
+      width: 50vw
+      height: 500px
+      overflow: hidden
+    &__wrapper
+      width: calc(100% - 500px - 100px)
+      margin-left: auto
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center
+      border-radius: 20px
+    .swiper-slide
+      width: 340px
+      opacity: 1
+      transition: .2s
+      &.swiper-slide-prev
+        opacity: 0
+  &-control
+    margin-top: auto
