@@ -52,4 +52,19 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.noble-count .current').textContent = currentIndex.toString().padStart(2, '0');
     document.querySelector('.noble-count .total').textContent = totalSlides.toString().padStart(2, '0');
   }
+
+  const faq = document.querySelector('.faq');
+  if (faq) {
+    faq.addEventListener('click', (e) => {
+      if (e.target.classList.contains('faq-item__title')) {
+        const item = e.target.closest('.faq-item');
+        if (item) {
+          item.classList.toggle('active');
+          [...faq.querySelectorAll('.faq-item')].forEach((el) => {
+            if (el !== item) el.classList.remove('active');
+          });
+        }
+      }
+    });
+  }
 });
