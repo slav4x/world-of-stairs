@@ -1,0 +1,28 @@
+.about
+  padding-top: 275px
+  .container
+    @include flexbox
+    align-items: center
+  &-content
+    max-width: 450px
+  .title
+    margin-bottom: 25px
+  &-photos
+    @include flexbox
+    align-items: center
+    gap: 20px
+    height: 410px
+    width: calc(100% - 450px - 40px)
+    margin-left: auto
+    max-width: 525px
+    img
+      width: calc(100% / 2 - 10px)
+      height: 100%
+      object-fit: cover
+      object-position: center
+      border-radius: 20px
+  &-line
+    margin-top: var(--gap)
+    height: 1px
+    width: 100%
+    background: rgba(0,0,0,.15)
