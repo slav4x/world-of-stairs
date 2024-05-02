@@ -26,3 +26,30 @@
     height: 1px
     width: 100%
     background: rgba(0,0,0,.15)
+  &-multiplex
+    padding-top: var(--gap)
+    .title
+      text-align: center
+      margin-bottom: 50px
+    &__video
+      display: block
+      position: relative
+      img
+        width: 100%
+        max-width: initial
+        height: 440px
+        border-radius: 20px
+        object-fit: cover
+        object-position: center
+      &::before
+        content: ''
+        position: absolute
+        width: 92px
+        height: 92px
+        background: url(../img/svg/play.svg) no-repeat center / cover
+        margin: auto
+        z-index: 10
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
