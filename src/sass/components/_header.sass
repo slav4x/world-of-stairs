@@ -1,0 +1,111 @@
+.header
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  z-index: 10
+  &-top
+    padding: 25px 0
+    @include flexbox
+    align-items: center
+    justify-content: space-between
+  &-logo
+    @include flexbox
+    align-items: center
+    gap: 20px
+    img
+      width: 64px
+    span
+      width: 160px
+      line-height: 1.3
+      display: block
+      b
+        font-weight: 700
+        display: block
+        margin-bottom: 5px
+      p
+        font-size: 11px
+  &-info
+    font-size: 11px
+    font-weight: 600
+    line-height: 1.3
+    p
+      margin-bottom: 10px
+      &:last-child
+        margin-bottom: 0
+    ul
+      @include flexbox
+      align-items: center
+      gap: 15px
+      margin-top: 5px
+      a
+        @include flexbox
+        align-items: center
+        gap: 5px
+        line-height: 12px
+        font-size: 12px
+        img
+          width: 12px
+        &.wa
+          color: #4caf50
+        &.tg
+          color: #039be5
+  &-contact
+    @include flexbox
+    align-items: flex-end
+    flex-direction: column
+    p
+      font-size: 11px
+      margin-bottom: 5px
+    a
+      font-size: 15px
+      font-weight: 700
+    span
+      margin-top: 5px
+      font-size: 11px
+      font-weight: 600
+      color: var(--color-red)
+      border-bottom: 1px solid var(--color-red)
+  &-rating
+    @include flexbox
+    align-items: flex-start
+    flex-direction: column
+    gap: 6px
+    h4
+      font-size: 20px
+      font-weight: 600
+      line-height: 23px
+      padding-left: 40px
+      background: url(../img/rating.png) no-repeat left center / 30px
+      span
+        font-size: 11px
+        color: #A8A6B0
+    p
+      font-size: 11px
+      line-height: 1.5
+  &-btn
+    @include flexbox
+    align-items: center
+    justify-content: center
+    text-align: center
+    width: 160px
+    height: 57px
+    border-radius: 5px
+    color: #fff
+    text-transform: uppercase
+    font-weight: 700
+    font-size: 11px
+    line-height: 1.4
+    background: #D44343
+    border: 1px solid rgba(255, 255, 255, 0.5)
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.13), 0px 2px 0px #9F4444, inset 7px 7px 65px rgba(255, 255, 255, 0.3)
+  &-nav
+    @include flexbox
+    align-items: center
+    justify-content: space-between
+    padding-top: 25px
+    border-top: 1px solid #E3E3E3
+    font-size: 11px
+    font-weight: 600
+    text-transform: uppercase
+    letter-spacing: 0.1em
