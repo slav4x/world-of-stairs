@@ -67,4 +67,58 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  const filterInputs = document.querySelectorAll('.projects-filter__input');
+
+  filterInputs.forEach((filter) => {
+    const checkboxes = filter.querySelectorAll('.projects-filter__dropdown input[type="checkbox"]');
+    const infoParagraph = filter.querySelector('p');
+
+    function updateSelectionInfo() {
+      const checkedCount = Array.from(checkboxes).filter((checkbox) => checkbox.checked).length;
+      if (checkedCount > 0) {
+        infoParagraph.textContent =
+          `Выбран` +
+          (checkedCount === 1 ? '' : 'о') +
+          ` ${checkedCount} вариант` +
+          (checkedCount === 1 ? '' : checkedCount > 1 && checkedCount < 5 ? 'а' : 'ов');
+      } else {
+        infoParagraph.textContent = 'Выберите варианты';
+      }
+    }
+
+    filter.addEventListener('click', function (event) {
+      event.stopPropagation(); // Останавливаем всплывание, чтобы избежать немедленного закрытия
+      if (filter.classList.contains('open')) {
+        filter.classList.remove('open'); // Если фильтр уже открыт, закрываем его
+      } else {
+        filterInputs.forEach((el) => el.classList.remove('open')); // закрыть все другие фильтры
+        filter.classList.add('open'); // открыть этот фильтр
+      }
+    });
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', updateSelectionInfo);
+    });
+
+    // Инициализируем текст при загрузке страницы
+    updateSelectionInfo();
+  });
+
+  document.addEventListener('click', function () {
+    filterInputs.forEach((el) => el.classList.remove('open'));
+  });
+
+  // Убедитесь, что клики внутри открытого dropdown не закрывают его
+  document.querySelectorAll('.projects-filter__dropdown').forEach((dropdown) => {
+    dropdown.addEventListener('click', function (event) {
+      event.stopPropagation(); // предотвратить всплывание клика вверх к документу
+    });
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      filterInputs.forEach((el) => el.classList.remove('open'));
+    }
+  });
 });
