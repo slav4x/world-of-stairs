@@ -121,4 +121,46 @@ document.addEventListener('DOMContentLoaded', function () {
       filterInputs.forEach((el) => el.classList.remove('open'));
     }
   });
+
+  document.querySelectorAll('.projects-item').forEach((item) => {
+    const slider = item.querySelector('.projects-item__slider');
+    const nextArrow = item.querySelector('.projects-item__arrow__next');
+    const prevArrow = item.querySelector('.projects-item__arrow__prev');
+    const currentLabel = item.querySelector('.projects-item__count .current');
+    const totalLabel = item.querySelector('.projects-item__count .total');
+
+    const swiper = new Swiper(slider, {
+      spaceBetween: 25,
+      slidesPerView: 3,
+      speed: 500,
+      navigation: {
+        nextEl: nextArrow,
+        prevEl: prevArrow,
+      },
+      on: {
+        init: function () {
+          updateProjectsSliderCounter(this, currentLabel, totalLabel);
+        },
+        slideChange: function () {
+          updateProjectsSliderCounter(this, currentLabel, totalLabel);
+        },
+      },
+    });
+  });
+
+  function updateProjectsSliderCounter(swiper, currentElement, totalElement) {
+    const currentIndex = swiper.activeIndex + 1; // используем activeIndex
+    const slidesInView = swiper.params.slidesPerView;
+    const totalSlides = swiper.slides.length;
+    const lastPossibleSlideIndex = totalSlides - slidesInView + 1;
+
+    // Обновляем currentIndex, чтобы отражать группы, а не индивидуальные слайды, если это необходимо
+    let displayedIndex = currentIndex;
+    if (currentIndex > lastPossibleSlideIndex) {
+      displayedIndex = lastPossibleSlideIndex; // Коррекция для последней группы слайдов
+    }
+
+    currentElement.textContent = displayedIndex.toString().padStart(2, '0');
+    totalElement.textContent = lastPossibleSlideIndex.toString().padStart(2, '0');
+  }
 });
