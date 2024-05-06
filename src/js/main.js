@@ -163,4 +163,59 @@ document.addEventListener('DOMContentLoaded', function () {
     currentElement.textContent = displayedIndex.toString().padStart(2, '0');
     totalElement.textContent = lastPossibleSlideIndex.toString().padStart(2, '0');
   }
+
+  const moreProjects = document.querySelector('.projects-more');
+  const listProjects = document.querySelector('.projects-list');
+
+  moreProjects.addEventListener('click', () => {
+    listProjects.classList.add('open');
+    moreProjects.classList.add('hide');
+
+    document.querySelectorAll('.projects-item').forEach((item) => {
+      const slider = item.querySelector('.projects-item__slider');
+      const nextArrow = item.querySelector('.projects-item__arrow__next');
+      const prevArrow = item.querySelector('.projects-item__arrow__prev');
+      const currentLabel = item.querySelector('.projects-item__count .current');
+      const totalLabel = item.querySelector('.projects-item__count .total');
+
+      const swiper = new Swiper(slider, {
+        spaceBetween: 25,
+        slidesPerView: 3,
+        speed: 500,
+        navigation: {
+          nextEl: nextArrow,
+          prevEl: prevArrow,
+        },
+        on: {
+          init: function () {
+            updateProjectsSliderCounter(this, currentLabel, totalLabel);
+          },
+          slideChange: function () {
+            updateProjectsSliderCounter(this, currentLabel, totalLabel);
+          },
+        },
+      });
+    });
+  });
+
+  const filterProjectsBtn = document.querySelector('.projects-filter__fixed');
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1,
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        filterProjectsBtn.classList.remove('show');
+      } else {
+        filterProjectsBtn.classList.add('show');
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+  const targetElement = document.querySelector('.projects-filter');
+  observer.observe(targetElement);
 });
