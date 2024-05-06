@@ -1,3 +1,332 @@
 @media(max-width: 1120px)
+  :root
+    --gap: 70px
+    --header-padding: 120px
+
   .container
     max-width: 768px
+
+  .header-top
+    padding: 15px 0
+  .header-btn,
+  .header-rating,
+  .header-nav,
+  .header-contact,
+  .header-info
+    display: none
+  .header-burger
+    display: block
+
+  .header-logo img
+    width: 48px
+    height: 48px
+  .header-logo
+    gap: 10px
+  .header-logo span b
+    font-size: 14px
+    margin-bottom: 3px
+  .header-logo span
+    width: 200px
+
+  .title
+    font-size: 42px
+
+  .hero .title b
+    padding: 10px 20px
+    img
+      width: 14px
+  .hero
+    height: 820px
+  .hero .subtitle
+    max-width: 480px
+
+  .subtitle
+    font-size: 22px
+
+  .noble-content
+    max-width: 100%
+    width: 100%
+
+  .noble-content .title
+    text-align: center
+    max-width: 500px
+    margin: 0 auto 20px
+  .noble-content .subtitle
+    max-width: 400px
+    text-align: center
+    padding-left: 0
+    padding-bottom: 30px
+    margin: 0 auto 30px
+    &::before
+      top: initial
+      left: 0
+      bottom: 0
+      right: 0
+      width: 80px
+      margin: 0 auto
+      height: 2px
+  .noble-text
+    text-align: center
+    margin: 0 auto
+
+  .noble-slider__wrapper
+    width: 100%
+  .noble-slider__content
+    overflow: initial
+  .noble-control
+    justify-content: center
+    margin: 30px 0
+    width: 100%
+
+  .headtitle
+    font-size: 22px
+    text-align: center
+  .interfloor .title
+    text-align: center
+  .interfloor-line
+    display: none
+  .interfloor-item
+    width: 100%
+  .interfloor-grid
+    gap: 40px
+    margin-top: 30px
+
+  .precision .title
+    text-align: center
+  .precision .subtitle.noline
+    text-align: center
+  .precision-grid
+    margin-top: 30px
+    gap: 0
+  .precision-photo
+    width: 100%
+    height: 265px
+    order: -1
+    flex: initial
+  .precision-list
+    width: 100%
+    border-top: 0
+  .precision-list__item
+    padding: 40px
+  .precision-list__item img
+    margin: 0 auto 10px
+  .precision-list__text
+    width: 100%
+    margin: 0
+    text-align: center
+  .precision-list__text p
+    max-width: 100%
+    margin-top: 10px
+
+  .details .title
+    text-align: center
+  .details .subtitle
+    text-align: center
+  .details-grid
+    margin-top: 30px
+    gap: 30px
+  .details-image
+    width: 100%
+    height: 280px
+  .details-image img
+    height: 360px
+  .details-content
+    width: 100%
+    padding: 0
+    margin: 0
+    max-width: 100%
+  .details-text
+    text-align: center
+  .details-price
+    max-width: 100%
+    flex-direction: column
+    padding: 40px
+    gap: 10px
+    text-align: center
+  .details-video
+    padding: 110px 40px 40px
+    background-position: top 40px center
+    text-align: center
+    border-bottom: 1px solid rgba(0,0,0,.1)
+
+  .multiplex .title
+    text-align: center
+  .multiplex .subtitle
+    text-align: center
+  .multiplex-list
+    margin-top: 30px
+    background: url(../img/multiplex-bg.jpg) center / cover no-repeat
+    padding: 40px
+    min-height: 0
+
+  .quiz-material__catalog
+    display: none
+  .quiz-material .title
+    text-align: center
+    max-width: 100%
+  .quiz-material .subtitle
+    max-width: 500px
+    text-align: center
+    padding-left: 0
+    padding-bottom: 30px
+    margin: 0 auto 30px
+    &::before
+      top: initial
+      left: 0
+      bottom: 0
+      right: 0
+      width: 80px
+      margin: 0 auto
+      height: 2px
+  .quiz-material__text
+    text-align: center
+    margin: 0 auto
+
+  .quiz-material__image
+    width: 280px
+    left: 0
+    top: 0
+    bottom: 0
+    right: 0
+    margin: 0 auto
+    position: relative
+    object-position: top center
+    object-fit: cover
+    height: 240px
+    margin-top: 40px
+  .quiz-block
+    margin-top: 0
+
+  .showroom .title
+    text-align: center
+  .showroom .subtitle.noline
+    text-align: center
+  .showroom-grid
+    margin-top: 30px
+    gap: 30px
+  .showroom-photos
+    width: 100%
+    max-width: 100%
+    order: -1
+    @include flexbox
+    img:nth-child(2),
+    img:nth-child(3)
+      display: none
+    img:nth-child(1)
+      grid-area: none
+      height: 420px
+  .showroom-content
+    width: 100%
+    max-width: 100%
+
+  .steps .title
+    text-align: center
+  .steps-grid
+    margin-top: 30px
+    grid-template-columns: repeat(3, 1fr)
+
+  .faq .title
+    text-align: center
+    margin-bottom: 30px
+
+  .catalog-block .title
+    text-align: center
+  .catalog-book
+    position: relative
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    max-width: 100%
+    width: 340px
+    margin: 0 auto
+    transform: rotate(14deg)
+
+  .catalog-block .subtitle
+    text-align: center
+    margin: 0 auto 30px
+  .catalog-block form
+    margin: 0 auto
+  .catalog-block form p
+    text-align: center
+
+  .contact-hand
+    position: relative
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    object-position: top left
+    height: 600px
+    width: 370px
+    object-fit: none
+    margin: 30px auto 0
+    max-width: initial
+  .contact .subtitle
+    text-align: center
+    max-width: 100%
+  .contact .title
+    text-align: center
+    margin: 0 auto 20px
+  .contact-text
+    text-align: center
+    margin: 0 auto
+  .contact-social
+    justify-content: center
+    margin-top: 30px
+  .contact-block
+    margin-top: 0
+    padding: 40px
+  .contact-content
+    width: 100%
+    max-width: 100%
+    .subtitle
+      text-align: left
+  .contact-map
+    width: 100%
+    height: 300px
+    margin-top: 40px
+
+  .footer .container
+    flex-direction: column
+    align-items: center
+    text-align: center
+    gap: 30px
+  .footer-logo
+    text-align: left
+  .footer-contact
+    align-items: center
+  .footer
+    padding: 30px
+
+  .offer-block form
+    padding: 0
+    flex: initial
+    width: calc(100% - 150px)
+  .offer-online
+    padding-left: 30px
+    margin-left: auto
+  .offer-block h4
+    margin-bottom: 30px
+    max-width: 400px
+
+  .coop-list
+    padding: 30px 0
+    gap: 30px
+
+  .about-serts__grid a img
+    height: 350px
+  .about-photos
+    width: 100%
+    max-width: 100%
+    height: 300px
+    margin-top: 30px
+  .about .title
+    text-align: center
+    margin: 0 auto 20px
+  .about .subtitle
+    text-align: center
+    margin: 0 auto
+  .about-content
+    max-width: 100%
+    width: 100%

@@ -1,5 +1,5 @@
 .about
-  padding-top: 275px
+  padding-top: var(--header-padding)
   .container
     @include flexbox
     align-items: center
@@ -20,7 +20,7 @@
       height: 100%
       object-fit: cover
       object-position: center
-      border-radius: 20px
+      border-radius: var(--radius)
   &-line
     margin-top: var(--gap)
     height: 1px
@@ -38,7 +38,7 @@
         width: 100%
         max-width: initial
         height: 440px
-        border-radius: 20px
+        border-radius: var(--radius)
         object-fit: cover
         object-position: center
       &::before
@@ -75,7 +75,7 @@
           width: 100%
           max-width: initial
           height: 220px
-          border-radius: 20px
+          border-radius: var(--radius)
           object-fit: cover
           object-position: center
         &::before
@@ -107,6 +107,6 @@
           width: 100%
           height: 490px
           max-width: initial
-          border-radius: 20px
+          border-radius: var(--radius)
           object-fit: cover
           object-position: center

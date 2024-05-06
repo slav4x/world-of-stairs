@@ -6,7 +6,7 @@ const viewportFix = (width) => {
   meta.setAttribute('content', `user-scalable=no, width=${screen.width <= width ? width : 'device-width'}`);
 };
 
-viewportFix(428);
+viewportFix(380);
 
 document.addEventListener('DOMContentLoaded', function () {
   Fancybox.bind('[data-fancybox]', {
@@ -130,12 +130,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const totalLabel = item.querySelector('.projects-item__count .total');
 
     const swiper = new Swiper(slider, {
-      spaceBetween: 25,
-      slidesPerView: 3,
+      spaceBetween: 20,
+      slidesPerView: 1,
       speed: 500,
       navigation: {
         nextEl: nextArrow,
         prevEl: prevArrow,
+      },
+      breakpoints: {
+        480: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 25,
+        },
       },
       on: {
         init: function () {
@@ -179,12 +188,21 @@ document.addEventListener('DOMContentLoaded', function () {
       const totalLabel = item.querySelector('.projects-item__count .total');
 
       const swiper = new Swiper(slider, {
-        spaceBetween: 25,
-        slidesPerView: 3,
+        spaceBetween: 20,
+        slidesPerView: 1,
         speed: 500,
         navigation: {
           nextEl: nextArrow,
           prevEl: prevArrow,
+        },
+        breakpoints: {
+          480: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 25,
+          },
         },
         on: {
           init: function () {

@@ -7,6 +7,7 @@
     left: 50%
     transform: translateX(-50%)
     z-index: -1
+    max-width: initial
   .container
     @include flexbox
   &-content
@@ -38,7 +39,7 @@
       height: 100%
       object-fit: cover
       object-position: center
-      border-radius: 20px
+      border-radius: var(--radius)
     .swiper-slide
       width: 340px
       opacity: 1
