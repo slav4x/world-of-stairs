@@ -40,6 +40,10 @@
       margin-bottom: 10px
       &:last-child
         margin-bottom: 0
+      a
+        transition: .2s
+        &:hover
+          color: var(--color-red)
   &-contact
     @include flexbox
     align-items: flex-start
@@ -56,6 +60,7 @@
       font-weight: 600
       color: var(--color-red)
       border-bottom: 1px solid var(--color-red)
+      cursor: pointer
   &-rating
     @include flexbox
     align-items: flex-start

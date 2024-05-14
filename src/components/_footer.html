@@ -19,8 +19,8 @@
       <p><b>Рейтинг в Яндекс</b><br> на основании 236 отзывов</p>
     </div>
     <ul class="footer-nav">
-      <li><a href="#">Вызвать замерщика</a></li>
-      <li><a href="#">Посетить шоу-рум</a></li>
+      <li><a href="javascript:;" data-fancybox data-src="#popup" data-form="Вызвать замерщика">Вызвать замерщика</a></li>
+      <li><a href="javascript:;" data-fancybox data-src="#popup" data-form="Посетить шоу-рум">Посетить шоу-рум</a></li>
       <li><a href="#">Портфолио</a></li>
       <li><a href="#">Сертификаты</a></li>
     </ul>
@@ -28,7 +28,21 @@
       <p>Пн. - Вс.: 10:00 - 19:00</p>
       <a href="tel:+7 (987) 294-94-74">+7 (987) 294-94-74</a>
       <a href="tel:+7 (999) 580-70-70">+7 (999) 580-70-70</a>
-      <span>Заказать бесплатный расчет</span>
+      <span data-fancybox data-src="#popup" data-form="Заказать бесплатный расчет"></span>
     </div>
   </div>
 </footer>
+
+<div class="popup" id="popup">
+  <h3>Оставьте данные,<br> наш специалист свяжется с вами</h3>
+  <form action="#" method="post">
+    <select name="messenger" class="input">
+      <option value="Telegram">Telegram</option>
+      <option value="What's App">What's App</option>
+    </select>
+    <input type="tel" name="phone" class="input masked" placeholder="Ваш телефон" required />
+    <input type="hidden" name="form" value="" />
+    <button><b>Оставить заявку</b></button>
+  </form>
+  <small>Нажимая на кнопку, вы соглашаетесь<br> с Пользовательским соглашением</small>
+</div>
