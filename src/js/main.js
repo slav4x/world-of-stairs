@@ -140,64 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    document.querySelectorAll('.projects-item').forEach((item) => {
-      const slider = item.querySelector('.projects-item__slider');
-      const nextArrow = item.querySelector('.projects-item__arrow__next');
-      const prevArrow = item.querySelector('.projects-item__arrow__prev');
-      const currentLabel = item.querySelector('.projects-item__count .current');
-      const totalLabel = item.querySelector('.projects-item__count .total');
-
-      const swiper = new Swiper(slider, {
-        spaceBetween: 20,
-        slidesPerView: 1,
-        speed: 500,
-        navigation: {
-          nextEl: nextArrow,
-          prevEl: prevArrow,
-        },
-        breakpoints: {
-          480: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 25,
-          },
-        },
-        on: {
-          init: function () {
-            updateProjectsSliderCounter(this, currentLabel, totalLabel);
-          },
-          slideChange: function () {
-            updateProjectsSliderCounter(this, currentLabel, totalLabel);
-          },
-        },
-      });
-    });
-
-    function updateProjectsSliderCounter(swiper, currentElement, totalElement) {
-      const currentIndex = swiper.activeIndex + 1; // используем activeIndex
-      const slidesInView = swiper.params.slidesPerView;
-      const totalSlides = swiper.slides.length;
-      const lastPossibleSlideIndex = totalSlides - slidesInView + 1;
-
-      // Обновляем currentIndex, чтобы отражать группы, а не индивидуальные слайды, если это необходимо
-      let displayedIndex = currentIndex;
-      if (currentIndex > lastPossibleSlideIndex) {
-        displayedIndex = lastPossibleSlideIndex; // Коррекция для последней группы слайдов
-      }
-
-      currentElement.textContent = displayedIndex.toString().padStart(2, '0');
-      totalElement.textContent = lastPossibleSlideIndex.toString().padStart(2, '0');
-    }
-
-    const moreProjects = document.querySelector('.projects-more');
-    const listProjects = document.querySelector('.projects-list');
-
-    moreProjects.addEventListener('click', () => {
-      listProjects.classList.add('open');
-      moreProjects.classList.add('hide');
-
+    function initProjectsSlider() {
       document.querySelectorAll('.projects-item').forEach((item) => {
         const slider = item.querySelector('.projects-item__slider');
         const nextArrow = item.querySelector('.projects-item__arrow__next');
@@ -232,6 +175,34 @@ document.addEventListener('DOMContentLoaded', function () {
           },
         });
       });
+    }
+
+    initProjectsSlider();
+
+    function updateProjectsSliderCounter(swiper, currentElement, totalElement) {
+      const currentIndex = swiper.activeIndex + 1; // используем activeIndex
+      const slidesInView = swiper.params.slidesPerView;
+      const totalSlides = swiper.slides.length;
+      const lastPossibleSlideIndex = totalSlides - slidesInView + 1;
+
+      // Обновляем currentIndex, чтобы отражать группы, а не индивидуальные слайды, если это необходимо
+      let displayedIndex = currentIndex;
+      if (currentIndex > lastPossibleSlideIndex) {
+        displayedIndex = lastPossibleSlideIndex; // Коррекция для последней группы слайдов
+      }
+
+      currentElement.textContent = displayedIndex.toString().padStart(2, '0');
+      totalElement.textContent = lastPossibleSlideIndex.toString().padStart(2, '0');
+    }
+
+    const moreProjects = document.querySelector('.projects-more');
+    const listProjects = document.querySelector('.projects-list');
+
+    moreProjects.addEventListener('click', () => {
+      listProjects.classList.add('open');
+      moreProjects.classList.add('hide');
+
+      initProjectsSlider();
     });
 
     const filterProjectsBtn = document.querySelector('.projects-filter__fixed');
@@ -379,4 +350,34 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   clearUtmParamsIfExpired();
+
+  document.querySelector('.projects-filter__apply').addEventListener('click', function () {
+    const filters = {
+      type: Array.from(document.querySelectorAll('input[name="type[]"]:checked')).map((el) => el.value),
+      frame: Array.from(document.querySelectorAll('input[name="frame[]"]:checked')).map((el) => el.value),
+      fencing: Array.from(document.querySelectorAll('input[name="fencing[]"]:checked')).map((el) => el.value),
+      steps: Array.from(document.querySelectorAll('input[name="steps[]"]:checked')).map((el) => el.value),
+    };
+
+    document.querySelectorAll('.projects-item').forEach((item) => {
+      const typeMatch = filters.type.length === 0 || filters.type.includes(item.dataset.type);
+      const frameMatch = filters.frame.length === 0 || filters.frame.includes(item.dataset.frame);
+      const fencingMatch = filters.fencing.length === 0 || filters.fencing.includes(item.dataset.fencing);
+      const stepsMatch = filters.steps.length === 0 || filters.steps.includes(item.dataset.steps);
+
+      if (typeMatch && frameMatch && fencingMatch && stepsMatch) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    document.querySelector('.projects-more').classList.add('hide');
+
+    initProjectsSlider();
+
+    if (Fancybox.getInstance()) {
+      Fancybox.getInstance().close();
+    }
+  });
 });
