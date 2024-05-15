@@ -13,14 +13,152 @@
         <a href="#">Перейти в каталог</a>
       </div>
     </div>
-    <div class="quiz-block">
+    <form action="#" method="post" class="quiz-block">
       <div class="quiz-wrapper">
         <div class="quiz-progress">
           <div class="quiz-progress__line"></div>
           <div class="quiz-progress__text">Опрос пройден на <span>0%</span></div>
         </div>
+        <div class="quiz-step active" data-step="1">
+          <h3>Куда выбираете лестницу?</h3>
+          <div class="quiz-step__list">
+            <label class="quiz-step__item">
+              <img src="img/quiz/1.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-1" value="В квартиру" />
+              <p>В квартиру</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/2.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-1" value="В дом/коттедж" />
+              <p>В дом/коттедж</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/3.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-1" value="На улицу" />
+              <p>На улицу</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/4.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-1" value="На производство" />
+              <p>На производство</p>
+            </label>
+          </div>
+        </div>
+        <div class="quiz-step" data-step="2">
+          <h3>Какой тип лестницы хотите?</h3>
+          <div class="quiz-step__list" style="--grid: 3">
+            <label class="quiz-step__item">
+              <img src="img/quiz/5.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-2" value="Закрытого типа" />
+              <p>Закрытого типа</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/6.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-2" value="Открытого типа" />
+              <p>Открытого типа</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/7.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-2" value="Монокосоур (на одном косоуре)" />
+              <p>Монокосоур (на одном косоуре)</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/8.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-2" value="На тетивах" />
+              <p>На тетивах</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/9.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-2" value="Антресольный этаж" />
+              <p>Антресольный этаж</p>
+            </label>
+          </div>
+        </div>
+        <div class="quiz-step" data-step="3">
+          <h3>Какая высота лестницы?</h3>
+          <div class="quiz-step__list" style="--grid: 3">
+            <label class="quiz-step__item">
+              <img src="img/quiz/10.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-3" value="До 2,8 метра" />
+              <p>До 2,8 метра</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/11.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-3" value="2,8 - 3,3 метра" />
+              <p>2,8 - 3,3 метра</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/12.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-3" value="Более 3,3 метра" />
+              <p>Более 3,3 метра</p>
+            </label>
+          </div>
+        </div>
+        <div class="quiz-step" data-step="4">
+          <h3>Каким материлом обшиваем лестницу?</h3>
+          <div class="quiz-step__list">
+            <label class="quiz-step__item">
+              <img src="img/quiz/13.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-4" value="Натуральное дерево" />
+              <p>Натуральное дерево</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/14.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-4" value="Стальной лист (чечевица)" />
+              <p>Стальной лист (чечевица)</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/15.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-4" value="ДПК (древесно-полимерный композит)" />
+              <p>ДПК (древесно-полимерный композит)</p>
+            </label>
+            <label class="quiz-step__item">
+              <img src="img/quiz/16.jpg" alt="" loading="lazy">
+              <input type="radio" name="step-4" value="ПВЛ (вытяжной лист)" />
+              <p>ПВЛ (вытяжной лист)</p>
+            </label>
+          </div>
+        </div>
+        <div class="quiz-step" data-step="5">
+          <h3>Какие сроки исполнения лестницы вас устроят?</h3>
+          <div class="quiz-step__list">
+            <label class="quiz-step__item">
+              <input type="radio" name="step-5" value="Как можно скорее" />
+              <p>Как можно скорее</p>
+            </label>
+            <label class="quiz-step__item">
+              <input type="radio" name="step-5" value="В течение 1 месяца" />
+              <p>В течение 1 месяца</p>
+            </label>
+            <label class="quiz-step__item">
+              <input type="radio" name="step-5" value="Не спеша, согласно этапам стройки" />
+              <p>Не спеша, согласно этапам стройки</p>
+            </label>
+            <label class="quiz-step__item">
+              <input type="radio" name="step-5" value="Узнаю цену на будущее" />
+              <p>Узнаю цену на будущее</p>
+            </label>
+          </div>
+        </div>
+        <div class="quiz-step" data-step="6">
+          <h3>Благодарим за ответы!</h3>
+          <div class="quiz-form">
+            <p>Свяжемся с вами, уточним детали и вышлем результат</p>
+            <select name="messenger" class="input">
+              <option value="Telegram">Telegram</option>
+              <option value="What's App">What's App</option>
+            </select>
+            <input type="tel" name="phone" class="input masked" placeholder="Ваш телефон" />
+            <input type="hidden" name="form" value="Квиз" />
+            <button><b>Получить расчет стоимости</b></button>
+          </div>
+        </div>
+        <div class="quiz-control">
+          <p><b>Выберите вариант ответа</b><br> и нажмите кнопку "Далее</p>
+          <button type="button" class="quiz-next" disabled>Далее</button>
+        </div>
       </div>
       <img src="img/quiz-man.png" alt="" class="quiz-man">
-    </div>
+    </form>
   </div>
 </section>

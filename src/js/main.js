@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   clearUtmParamsIfExpired();
 
-  document.querySelector('.projects-filter__apply').addEventListener('click', function () {
+  document.querySelector('.projects-filter__apply')?.addEventListener('click', function () {
     const filters = {
       type: Array.from(document.querySelectorAll('input[name="type[]"]:checked')).map((el) => el.value),
       frame: Array.from(document.querySelectorAll('input[name="frame[]"]:checked')).map((el) => el.value),
@@ -380,4 +380,51 @@ document.addEventListener('DOMContentLoaded', function () {
       Fancybox.getInstance().close();
     }
   });
+
+  const quizControl = document.querySelector('.quiz-control');
+  const quizNextButton = document.querySelector('.quiz-next');
+  const quizSteps = document.querySelectorAll('.quiz-step');
+  const progressBar = document.querySelector('.quiz-progress__line');
+  let currentStepIndex = 0;
+
+  quizNextButton.disabled = true; // Делаем кнопку неактивной по умолчанию
+
+  function updateProgressBar() {
+    const progressPercentage = (currentStepIndex / (quizSteps.length - 1)) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+    document.querySelector('.quiz-progress__text span').textContent = `${Math.round(progressPercentage)}%`;
+  }
+
+  // Обновление состояния кнопки на основе выбранного варианта ответа
+  function updateButtonState() {
+    const inputs = quizSteps[currentStepIndex].querySelectorAll('input[type="radio"]');
+    quizNextButton.disabled = !Array.from(inputs).some((input) => input.checked);
+  }
+
+  // Переход к следующему шагу
+  quizNextButton.addEventListener('click', function () {
+    if (currentStepIndex < quizSteps.length - 1) {
+      quizSteps[currentStepIndex].classList.remove('active');
+      currentStepIndex++;
+      quizSteps[currentStepIndex].classList.add('active');
+      updateButtonState(); // Проверяем состояние кнопки на новом шаге
+      updateProgressBar();
+      if (currentStepIndex === quizSteps.length - 1) {
+        quizControl.style.display = 'none'; // Скрываем кнопку на последнем шаге
+      }
+    }
+  });
+
+  // Вешаем обработчик изменений на все шаги квиза
+  quizSteps.forEach((step) => {
+    step.addEventListener('change', function (event) {
+      if (event.target.type === 'radio') {
+        updateButtonState();
+      }
+    });
+  });
+
+  // Проверяем состояние кнопки при инициализации
+  updateButtonState();
+  updateProgressBar();
 });
